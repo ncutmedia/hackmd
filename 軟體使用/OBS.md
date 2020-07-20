@@ -5,6 +5,9 @@ description: 使用OBS進行錄影、直播、導播的介紹
 ---
 
 # OBS 快速上手
+
+[![hackmd-github-sync-badge](https://hackmd.io/Vlr3zWc5S-aFxHpAB9Vjmg/badge)](https://hackmd.io/Vlr3zWc5S-aFxHpAB9Vjmg)
+
 :::info
 OBS 是一套開源跨平台的錄影與串流直播程式，許多的直播主都是利用此軟體擔任串流直播的重責大任。
 :::
@@ -15,6 +18,7 @@ OBS 是一套開源跨平台的錄影與串流直播程式，許多的直播主�
 Open Broadcaster Software（OBS Studio）是由 OBS Project主導的開源跨平台(Windows/Mac/Linux)錄影與串流直播程式。
 OBS Studio使用 C 和 C++ 語音編寫，提供即時影音擷取與混和、多種來源組成場景、場景切換特效、基礎混音功能、錄影和串流。資料傳輸主要通過即時訊息協定（RTMP）完成，可以傳送到任何支援RTMP的目的地，包括YouTube、Twitch、Instagram 和 Facebook 等串流媒體網站。
 OBS Studio 同時提供了強大的 API 與插件，或以 Lua 、Python 等語言進行客製化的調整。
+
 ![](https://i.imgur.com/nPyKfRm.png)
 
 ## 使用環境準備
@@ -48,6 +52,7 @@ streamlabs obs
 
 #### 3.1 影像
 我們知道影片是由連續的影像組合而成的，此處是定義單張影像所使用的解析度、壓縮方式以及每秒多少幀(Frame Per Second; FPS)。
+
 ![](https://i.imgur.com/qs19EE3.png)
 
 #### 3.2 輸出
@@ -59,11 +64,13 @@ streamlabs obs
 
 #### 3.3 串流
 在此輸入串流平台的伺服器與金鑰，目前支援的平台有 Twitch、Youtube、Facebook、Vimeo、Twitter...等，可按服務欄位右側展開看到所有支援的清單。
+
 ![](https://i.imgur.com/NVCzpGD.png)
 > Youtube 首次啟用直播的帳戶要等待24小時。
 
 ### 4. 來源
 首次使用必須設定影像的來源，請按下圖的 :heavy_plus_sign: 
+
 ![](https://i.imgur.com/0D9G66h.png)
 
 通常有雙螢幕時選擇顯示器擷取，單螢幕時使用視窗擷取，以下是所有支援的訊號來源
@@ -76,9 +83,11 @@ streamlabs obs
 ![](https://i.imgur.com/kxszSZA.png)
 
 選擇與 OBS 軟體所在不同的螢幕
+
 ![](https://i.imgur.com/apHWBGZ.png)
 
 設定好之後如下圖，此時若要移除該來源，請點擊下方的 :heavy_minus_sign: 
+
 ![](https://i.imgur.com/4hK8g2E.png)
 
 :::danger
@@ -88,9 +97,11 @@ streamlabs obs
 
 #### 4.2 視窗擷取
 若只有一個螢幕可操作，或有多個應用程式的視窗想擷取，則可用此模式
+
 ![](https://i.imgur.com/npYVSbO.png)
 
 此處可點選視窗這欄位的下拉選單，OBS會呈現出目前運作中的程式視窗，通常上方的預覽畫面會呈現出該視窗的內容，若仍是黑黑一片，則可能要調整下方的擷取方式。
+
 ![](https://i.imgur.com/Y8k2oZv.png)
 
 :::danger
@@ -105,26 +116,33 @@ streamlabs obs
 ![](https://i.imgur.com/eQFEGX3.png)
 
 此處選擇 webcam 後按確定
+
 ![](https://i.imgur.com/v7NUUmz.png)
 
 可用滑鼠拖曳改變不同來源所占畫面的大小
+
 ![](https://i.imgur.com/nkAguqW.png)
 
 #### 4.4 文字 (GDI+)
 若要加上標題或跑馬燈之類的文字，可利用文字 (GDI+)功能。
+
 ![](https://i.imgur.com/ercKkMa.png)
 
 打入所需要的文字，並設定相關屬性
+
 ![](https://i.imgur.com/H3ftxjo.png)
 
 在加入的文字來源上按下滑鼠右鍵，選擇濾鏡功能
+
 ![](https://i.imgur.com/1jqnuYj.png)
 
 選擇捲動濾鏡
+
 ![](https://i.imgur.com/bXwQ3Au.png)
 ![](https://i.imgur.com/y6lJvqu.png)
 
 設定捲動的水平速度
+
 ![](https://i.imgur.com/TgmaohS.png)
 
 ### 5. 場景
@@ -133,25 +151,32 @@ streamlabs obs
 ![](https://i.imgur.com/mwcDg8C.png)
 
 輸入場景名稱後，按確定
+
 ![](https://i.imgur.com/clYDvAI.png)
 
 此時場景位於場景 2，來源未設定，請設定為視窗擷取
+
 ![](https://i.imgur.com/cNvpQ6G.png)
 
 之後請切換不同的場景，可看見包含的來源也跟著切換
+
 ![](https://i.imgur.com/FLa25wl.gif)
 
 ## 錄影
 按下右下角的開始錄製，會針對目前OBS的主視窗開始錄製。
+
 ![](https://i.imgur.com/NZWthhK.png)
 
 錄製中可按下停止錄製，或右邊的暫停，下方會顯示目前錄製的時間。
+
 ![](https://i.imgur.com/lzGu4rC.png)
 
 錄製的檔案預設會放在使用者家目錄的影片資料夾，以副檔名 mkv 存放。
+
 ![](https://i.imgur.com/2a2htu3.png)
 
 若要改變預設值，可到設定->輸出->錄影->錄影路徑中更改。
+
 ![](https://i.imgur.com/XP9sxzZ.png)
 
 ## 導播
@@ -160,15 +185,19 @@ streamlabs obs
 ![](https://i.imgur.com/CBxBzJj.png)
 
 目前停留的場景一開始會出現在右側的 Program(節目)與左側的Preview(預覽)。
+
 ![](https://i.imgur.com/jn1amr5.png)
 
 此時按下另一個場景時，會變動的是 Preview(預覽)，以避免影響Program(節目)的進行。
+
 ![](https://i.imgur.com/kA8RaxZ.png)
 
 此時可按下中間的轉場選單，切換Preview(預覽)與Program(節目)。
+
 ![](https://i.imgur.com/cxr0T9Z.png)
 
 若要將每個場景呈現畫面預覽，OBS提供了如同硬體導播機常見的 Multi View 功能，最多可同時檢視 8 個場景，位於如下圖的檢視選單中
+
 ![](https://i.imgur.com/B5ub8hc.png)
 
 以視窗方式呈現 Multi View
@@ -176,9 +205,11 @@ streamlabs obs
 
 ## 直播
 要進行串流直播前，需先至設定的「串流」與「輸出」中，將金鑰、影像位元率等先設定好，然後按下右下角的「開始串流」
+
 ![](https://i.imgur.com/kex7M9T.png)
 
 直播時，下方的狀態列會出現 Live 的經過時間以及目前上傳的頻寬耗用，若出現黃燈或紅燈則代表頻寬不夠用了，要去看看設定中的 FPS 與影音位元率的數值是否合理，不然就是頻寬被其他裝置佔用了。要停止直播的話，請按下停止串流。
+
 ![](https://i.imgur.com/SWYfRHL.png)
 
 ## 參考
