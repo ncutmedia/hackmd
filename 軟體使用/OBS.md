@@ -1,10 +1,10 @@
 ---
-title: OBS錄影直播
+title: OBS軟體導播機
 tags: 軟體使用
 description: 使用OBS進行錄影、直播、導播的介紹
 ---
 
-# OBS 快速上手
+# OBS軟體導播機
 
 [![hackmd-github-sync-badge](https://hackmd.io/Vlr3zWc5S-aFxHpAB9Vjmg/badge)](https://hackmd.io/Vlr3zWc5S-aFxHpAB9Vjmg)
 
@@ -45,9 +45,13 @@ streamlabs obs
 
 ### 3. 設定
 首次使用 OBS Studio軟體時，OBS Studio 會執行『自動設定精靈』，此精靈可以針對『串流』或『錄影』的場合來做最佳化的設定，此處請按否。
+
 ![](https://i.imgur.com/KeD0ZFX.png)
+
 之後若需要的話，可在選單中的工具，選擇自動設定精靈，此處讓我們以手動方式設定各項參數，請按畫面右下角的設定
+
 ![](https://i.imgur.com/xLRjEDh.png)
+
 以下介紹最重要的三大類設定：
 
 #### 3.1 影像
@@ -59,10 +63,28 @@ streamlabs obs
 此處是串流與錄影的影片編碼設定，通常建議串流部分編碼器選擇硬體編碼，而錄影部分選擇 x264(CPU編碼)，而串流部分因為牽扯到上傳頻寬、串流平台限制以及觀眾下載頻寬等因素，還要額外設定影音的位元率(可用向外流的水管大小比喻)。
 
 當輸出模式調整為『進階』時，可進行更細部的控制。
+![](https://i.imgur.com/mmvqIiW.jpg)
 
-![](https://i.imgur.com/tZgYASp.png)
+#### 3.3 音效
+將OBS設定中的音效取樣頻率改為 48kHz
+![](https://i.imgur.com/pTbyRK5.png)
 
-#### 3.3 串流
+再來要更改系統取樣頻率，首先進入設定
+![](https://i.imgur.com/Y6QbAZ8.png)
+
+點選系統
+![](https://i.imgur.com/wta9737.png)
+
+點選音效>聲音控制台
+![](https://i.imgur.com/QGp0dNf.png)
+
+針對預設要輸出的喇叭，開啟內容
+![](https://i.imgur.com/j6WK4Ww.png)
+
+點選進階頁籤，確認取樣率與位元深度如下圖
+![](https://i.imgur.com/kNWRFMq.png)
+
+#### 3.4 串流
 在此輸入串流平台的伺服器與金鑰，目前支援的平台有 Twitch、Youtube、Facebook、Vimeo、Twitter...等，可按服務欄位右側展開看到所有支援的清單。
 
 ![](https://i.imgur.com/NVCzpGD.png)
@@ -212,6 +234,55 @@ streamlabs obs
 
 ![](https://i.imgur.com/SWYfRHL.png)
 
+## 重新封裝錄影檔
+若有將錄製好的 mkv 檔案格式，重新封裝為 mp4 檔案格式的需求，可透過選單的 `檔案 》 重新封裝錄影` 將 mkv檔 內部的視訊與音訊以複製(copy)方式到 mp4檔，所以速度相當快速。
+![](https://i.imgur.com/TGhNw1F.png)
+
+## 手機鏡頭 Webcam 化
+當某些場合不方便使用攝影機拍攝，想使用手機鏡頭無線傳輸畫面，又沒有wifi訊號時，可使用 [VDO.Ninja](https://github.com/steveseguin/vdo.ninja) 這個開源專案達成。以下進行實作測試
+
+#### 1. 手機端點選以下連結(發送)
+
+https://vdo.ninja/?push=6xC79nM&quality=0&label=ccmedia
+| 分享攝影機與麥克風 | 允許使用攝影機與麥克風 | 選定鏡頭後按下START |
+| -------- | -------- | -------- |
+| ![](https://i.imgur.com/1OrdcPV.jpg)|![](https://i.imgur.com/VcJWzwy.jpg)|![](https://i.imgur.com/Op2ezb0.jpg)|
+
+#### 2. 其它電腦點選以下連結(接收)
+
+https://vdo.ninja/?view=6xC79nM&label=ccmedia&bitrate=5000
+
+因為 VDO.Ninja 使用的是 WebRTC 的通訊技術，因此只要以瀏覽器點選上述連結即可觀看。
+
+若要使用obs接收畫面，影像來源必須加入【瀏覽器】，網址請輸入上述的接收連結，其它設定請參考下圖
+![](https://i.imgur.com/mYZZBb5.png)
+
+更多的OBS應用請參考[VDO.Ninja官網](https://vdo.ninja/)
+
+以上參考自 [如何把手機變 Webcam(免安裝軟體、免插線、免費)](https://annkuoq.github.io/blog/2021-04-13-how-to-use-mobile-as-webcam/)
+
+## 直播錄影
+一般而言要針對直播錄影，可使用錄製視窗的方式進行，但我們也可以改用OBS來源：瀏覽器的方式進行直播的抓取，請複製以下的連結
+```htmlembedded=
+https://hopollo.github.io/OBS-Youtube-Player/?watch?v=A1ZpL2hs3V8&volume=10&random=true&loop=true&w=1920&h=1080
+```
+然後將其中的【v=A1ZpL2hs3V8】換成直播影片的ID即可。
+
+若為播放清單中的一部分，則將其中的【v=qy0yLNZ45fQ&list=RDlSqnqSSXTUI】換成直播影片的ID與播放清單ID即可。
+```htmlembedded=
+https://hopollo.github.io/OBS-Youtube-Player/?watch?v=qy0yLNZ45fQ&list=RDlSqnqSSXTUI&volume=10&random=true&loop=true&w=1920&h=1080
+```
+以上參考自 [OBS-Youtube-Player](https://github.com/peterju/OBS-Youtube-Player)
+
+## 字卡
+想要在活動的拍攝中加上字卡畫面，推薦使用黑底的簡報在另外一台電腦播放，然後在OBS電腦截取簡報畫面，然後加上亮度鍵。
+
+### 簡報畫面
+![](https://i.imgur.com/AqHa4GQ.png)
+### 特效濾鏡加上亮度鍵
+![](https://i.imgur.com/ocNAb5j.png)
+
+
 ## 參考
 * [OBS Studio 專業的螢幕錄製與串流直播免費軟體安裝教學](https://www.kjnotes.com/freeware/99)
 * [OBS 開台教學、實況直播軟體下載設定](https://tw.pikolive.com/liveteach/obs)
@@ -222,8 +293,10 @@ streamlabs obs
 * [直播讀書會](https://newsveg.tw/blog/3641)
 * [手把手教你做直播！4K直播了解一下？](https://youtu.be/SRWpUvBtnZI)
 * [麥克風音量好小怎麼辦?](https://suwife.pixnet.net/blog/post/310240847)
+* [如何將 OBS 的畫面送到 ZOOM.US 軟體中？](https://blog.kevinyang.net/2018/05/01/obs-streaming-zoom/)
+* [OBS-NDI](https://blog.kevinyang.net/2020/04/02/obs-tips-1/)
 
 :::success
 - Author：朱孝國
-- Last Modified：2020/07/20
+- Last Modified：2022/01/06
 :::
