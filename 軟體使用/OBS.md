@@ -238,6 +238,23 @@ streamlabs obs
 若有將錄製好的 mkv 檔案格式，重新封裝為 mp4 檔案格式的需求，可透過選單的 `檔案 》 重新封裝錄影` 將 mkv檔 內部的視訊與音訊以複製(copy)方式到 mp4檔，所以速度相當快速。
 ![](https://i.imgur.com/TGhNw1F.png)
 
+## NDI傳輸
+可將影像與聲音訊號透過網路線傳輸(NDI協定)，分為傳送端與接收端，二端必須在同一個區網，且必須安裝 [obs-ndi](https://github.com/Palakis/obs-ndi/releases) 與 [NDI Windows runtime](https://ndi.palakis.fr/runtime/)
+
+![](https://i.imgur.com/IY2N6Yj.png)
+![](https://i.imgur.com/4EZeatg.png =400x)
+
+安裝完上述2個軟體後，請重新啟動電腦
+:::danger
+obs-ndi 官網建議搭配的 NDI runtime 版本是4.5.1，不知安裝最新的5.0.10 版會不會有問題？
+:::
+
+發送端電腦在確認視訊來源後，按OBS選單的【工具】-》【NDI Output settings】，將Main Output 打勾，名稱可改一下，之後接收端比較好辨識
+![](https://i.imgur.com/Dvv5Nvs.png)
+
+接收端電腦在OBS的視訊【來源】增加【NDI Source】，Source name選擇上述發送端的名稱
+![](https://i.imgur.com/yzEnjwD.png)
+
 ## 手機鏡頭 Webcam 化
 當某些場合不方便使用攝影機拍攝，想使用手機鏡頭無線傳輸畫面，又沒有wifi訊號時，可使用 [VDO.Ninja](https://github.com/steveseguin/vdo.ninja) 這個開源專案達成。以下進行實作測試
 
